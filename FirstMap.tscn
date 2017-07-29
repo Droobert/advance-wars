@@ -1,0 +1,135 @@
+[gd_scene load_steps=13 format=1]
+
+[ext_resource path="res://mapTiles.tres" type="TileSet" id=1]
+[ext_resource path="res://FirstMap.gd" type="Script" id=2]
+[ext_resource path="res://maptiles.tres" type="TileSet" id=3]
+[ext_resource path="res://blue tank.tscn" type="PackedScene" id=4]
+[ext_resource path="res://redSoldier.tscn" type="PackedScene" id=5]
+[ext_resource path="res://custom cursor.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Hitbox.tscn" type="PackedScene" id=7]
+[ext_resource path="res://blueHQ.gd" type="Script" id=8]
+[ext_resource path="res://neutralFactoryA.gd" type="Script" id=9]
+[ext_resource path="res://neutralFactoryB.gd" type="Script" id=10]
+[ext_resource path="res://neutralFactoryC.gd" type="Script" id=11]
+[ext_resource path="res://neutralFactoryD.gd" type="Script" id=12]
+
+[node name="TileMap" type="TileMap"]
+
+mode = 0
+tile_set = ExtResource( 1 )
+cell/size = Vector2( 16, 16 )
+cell/quadrant_size = 16
+cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+cell/half_offset = 2
+cell/tile_origin = 0
+cell/y_sort = false
+collision/use_kinematic = false
+collision/friction = 1.0
+collision/bounce = 0.0
+collision/layers = 1
+collision/mask = 1
+occluder/light_mask = 1
+tile_data = IntArray( -65536, 1, -65535, 1, -65534, 1, -65533, 1, 0, 1, 1, 1, 2, 1, 4, 5, 5, 5, 6, 5, 7, 5, 8, 5, 9, 5, 10, 0, 11, 5, 12, 5, 13, 5, 14, 4, 65536, 1, 65537, 1, 65539, 5, 65540, 0, 65541, 5, 65542, 5, 65543, 0, 65544, 5, 65545, 0, 65546, 2, 65547, 0, 65548, 5, 65549, 5, 65550, 2, 131072, 1, 131074, 0, 131075, 5, 131076, 0, 131077, 0, 131078, 5, 131080, 5, 131084, 5, 131085, 5, 196609, 5, 196610, 0, 196611, 0, 196612, 0, 196614, 11, 196615, 5, 196616, 11, 196617, 5, 196618, 5, 196619, 5, 196620, 5, 196621, 5, 196622, 5, 262144, 5, 262145, 5, 262147, 0, 262148, 0, 262149, 5, 262150, 5, 262151, 5, 262152, 5, 262153, 5, 262154, 5, 262155, 0, 262156, 0, 262157, 5, 262158, 5, 327680, 5, 327681, 5, 327682, 5, 327684, 0, 327685, 5, 327686, 5, 327687, 5, 327688, 5, 327689, 5, 327690, 0, 327691, 0, 327693, 5, 327694, 2, 393216, 5, 393217, 5, 393218, 5, 393219, 5, 393220, 0, 393221, 0, 393222, 12, 393223, 5, 393224, 11, 393225, 0, 393226, 0, 393228, 5, 393229, 2, 393230, 2, 458752, 5, 458753, 5, 458754, 5, 458755, 5, 458757, 0, 458758, 5, 458759, 0, 458760, 5, 458761, 0, 458763, 5, 458764, 2, 458765, 2, 458766, 2, 524288, 3, 524289, 5, 524290, 5, 524291, 5, 524292, 5, 524294, 5, 524296, 5, 524297, 0, 524298, 5, 524299, 2, 524300, 2, 524301, 2, 524302, 2, 589825, 5, 589826, 5, 589827, 5, 589828, 5, 589829, 5, 589830, 5, 589831, 5, 589832, 5, 589834, 5 )
+script/script = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="UnderMap" type="TileMap" parent="."]
+
+visibility/behind_parent = true
+mode = 0
+tile_set = ExtResource( 3 )
+cell/size = Vector2( 16, 16 )
+cell/quadrant_size = 16
+cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+cell/half_offset = 2
+cell/tile_origin = 0
+cell/y_sort = false
+collision/use_kinematic = false
+collision/friction = 1.0
+collision/bounce = 0.0
+collision/layers = 1
+collision/mask = 1
+occluder/light_mask = 1
+tile_data = IntArray( 10, 5, 14, 5, 65540, 5, 65543, 5, 65545, 5, 65547, 5, 131074, 5, 131077, 5, 196611, 5, 262155, 5, 262156, 5, 327690, 5, 327694, 5, 393221, 5, 393225, 5, 393229, 5, 458759, 5, 458764, 5, 524288, 5, 524299, 5 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="blueTank" parent="." instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 184, 56 )
+
+[node name="redSoldier" parent="." instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 72, 104 )
+frame = 1
+
+[node name="customCursor" parent="." instance=ExtResource( 6 )]
+
+[node name="blueHQ" parent="." instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 232.103, 23.3729 )
+transform/scale = Vector2( 0.253914, 0.248601 )
+script/script = ExtResource( 8 )
+
+[node name="nf A" parent="." instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 104.007, 56.0453 )
+transform/scale = Vector2( 0.251899, 0.251899 )
+script/script = ExtResource( 9 )
+
+[node name="nf B" parent="." instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 136.103, 56.049 )
+transform/scale = Vector2( 0.251899, 0.251899 )
+script/script = ExtResource( 10 )
+
+[node name="nf C" parent="." instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 104.112, 104.091 )
+transform/scale = Vector2( 0.251899, 0.251899 )
+script/script = ExtResource( 11 )
+
+[node name="nf D" parent="." instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 136.142, 103.986 )
+transform/scale = Vector2( 0.251899, 0.251899 )
+script/script = ExtResource( 12 )
+
+[node name="victoryBanner" type="Label" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 30.0
+margin/right = 239.0
+margin/bottom = 125.0
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[connection signal="area_enter" from="blueHQ" to="." method="_on_blueHQ_area_enter"]
+
+[connection signal="area_exit" from="blueHQ" to="." method="_on_blueHQ_area_exit"]
+
+[connection signal="area_enter" from="nf A" to="." method="_on_nf_A_area_enter"]
+
+[connection signal="area_exit" from="nf A" to="." method="_on_nf_A_area_exit"]
+
+[connection signal="area_enter" from="nf B" to="." method="_on_nf_B_area_enter"]
+
+[connection signal="area_exit" from="nf B" to="." method="_on_nf_B_area_exit"]
+
+[connection signal="area_enter" from="nf C" to="." method="_on_nf_C_area_enter"]
+
+[connection signal="area_exit" from="nf C" to="." method="_on_nf_C_area_exit"]
+
+[connection signal="area_enter" from="nf D" to="." method="_on_nf_D_area_enter"]
+
+[connection signal="area_exit" from="nf D" to="." method="_on_nf_D_area_exit"]
+
+

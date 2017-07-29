@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=1]
+
+[ext_resource path="res://fire.png" type="Texture" id=1]
+[ext_resource path="res://capture.png" type="Texture" id=2]
+[ext_resource path="res://wait.png" type="Texture" id=3]
+
+[node name="Command List" type="PopupMenu"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 166.0
+margin/top = 4.0
+margin/right = 235.0
+margin/bottom = 80.0
+popup/exclusive = true
+items = [ "Fire", ExtResource( 1 ), false, false, false, 0, 0, null, "", false, "Capt", ExtResource( 2 ), false, false, false, 1, 0, null, "", false, "Wait", ExtResource( 3 ), false, false, false, 2, 0, null, "", false ]
+
+

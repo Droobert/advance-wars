@@ -1,0 +1,410 @@
+[gd_scene load_steps=10 format=1]
+
+[ext_resource path="res://red soldier.png" type="Texture" id=1]
+[ext_resource path="res://units.gd" type="Script" id=2]
+[ext_resource path="res://maptiles.tres" type="TileSet" id=3]
+[ext_resource path="res://consider moving.gd" type="Script" id=4]
+[ext_resource path="res://fire.png" type="Texture" id=5]
+[ext_resource path="res://capture.png" type="Texture" id=6]
+[ext_resource path="res://wait.png" type="Texture" id=7]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 11.9496, 5.20371 )
+
+[node name="red soldier" type="Sprite"]
+
+transform/pos = Vector2( 8.42928, 8.42928 )
+texture = ExtResource( 1 )
+script/script = ExtResource( 2 )
+
+[node name="HP" type="Label" parent="."]
+
+rect/scale = Vector2( 0.95, 0.95 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 1.0
+margin/top = -4.0
+margin/right = 10.0
+margin/bottom = 10.0
+custom_constants/shadow_offset_x = 0
+custom_constants/shadow_as_outline = 0
+text = "9"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="soldierArea2D" type="Area2D" parent="."]
+
+transform/scale = Vector2( 0.229639, 0.229639 )
+input/pickable = true
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1.8334, 0, 0, 1.86935, 16.0987, 14.3039 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="soldierArea2D"]
+
+transform/pos = Vector2( 16.0987, 14.3039 )
+transform/scale = Vector2( 1.8334, 1.86935 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="HighlightMap" type="TileMap" parent="."]
+
+transform/pos = Vector2( -8, -8 )
+mode = 0
+tile_set = ExtResource( 3 )
+cell/size = Vector2( 16, 16 )
+cell/quadrant_size = 1
+cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+cell/half_offset = 2
+cell/tile_origin = 0
+cell/y_sort = false
+collision/use_kinematic = false
+collision/friction = 1.0
+collision/bounce = 0.0
+collision/layers = 1
+collision/mask = 1
+occluder/light_mask = 1
+tile_data = IntArray( -196608, 7, -65537, 7, -131072, 7, -131071, 7, -2, 7, -1, 7, -65536, 7, -65535, 7, -65534, 7, 65533, 7, 65534, 7, 65535, 7, 1, 7, 2, 7, 3, 7, 131070, 7, 131071, 7, 65536, 7, 65537, 7, 65538, 7, 196607, 7, 131072, 7, 131073, 7, 196608, 7 )
+script/script = ExtResource( 4 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Area2D" type="Area2D" parent="HighlightMap"]
+
+transform/pos = Vector2( 15.0623, 11.7563 )
+transform/scale = Vector2( 1.44387, 1.37409 )
+input/pickable = true
+shapes/0/shape = SubResource( 2 )
+shapes/0/transform = Matrix32( 0.236271, 0, 0, 0.566516, 8.54508, -0.045784 )
+shapes/0/trigger = false
+shapes/1/shape = SubResource( 2 )
+shapes/1/transform = Matrix32( 0.253423, 0, 0, 0.619422, -35.6798, -0.280088 )
+shapes/1/trigger = false
+shapes/2/shape = SubResource( 2 )
+shapes/2/transform = Matrix32( 0.253423, 0, 0, 0.640351, -24.6793, 11.4352 )
+shapes/2/trigger = false
+shapes/3/shape = SubResource( 2 )
+shapes/3/transform = Matrix32( 0.253423, 0, 0, 0.58276, -13.3815, 23.3455 )
+shapes/3/trigger = false
+shapes/4/shape = SubResource( 2 )
+shapes/4/transform = Matrix32( 0.224835, 0, 0, 0.642496, -2.4554, -12.3078 )
+shapes/4/trigger = false
+shapes/5/shape = SubResource( 2 )
+shapes/5/transform = Matrix32( 0.247706, 0, 0, 0.642497, -13.4559, -23.7106 )
+shapes/5/trigger = false
+shapes/6/shape = SubResource( 2 )
+shapes/6/transform = Matrix32( 0.241988, 0, 0, 0.58276, -2.38108, -35.2309 )
+shapes/6/trigger = false
+shapes/7/shape = SubResource( 2 )
+shapes/7/transform = Matrix32( 0.247705, 0, 0, 0.619421, 8.69372, 11.5914 )
+shapes/7/trigger = false
+shapes/8/shape = SubResource( 2 )
+shapes/8/transform = Matrix32( 0.22683, 0, 0, 0.609934, 20.0175, -0.201986 )
+shapes/8/trigger = false
+shapes/9/shape = SubResource( 2 )
+shapes/9/transform = Matrix32( 0.243983, 0, 0, 0.608957, -24.6534, -0.201981 )
+shapes/9/trigger = false
+shapes/10/shape = SubResource( 2 )
+shapes/10/transform = Matrix32( 0.232548, 0, 0, 0.608957, -13.3556, 11.5133 )
+shapes/10/trigger = false
+shapes/11/shape = SubResource( 2 )
+shapes/11/transform = Matrix32( 0.238265, 0, 0, 0.58276, -2.28081, 23.1893 )
+shapes/11/trigger = false
+shapes/12/shape = SubResource( 2 )
+shapes/12/transform = Matrix32( 0.22683, 0, 0, 0.642496, 8.71966, -12.3078 )
+shapes/12/trigger = false
+shapes/13/shape = SubResource( 2 )
+shapes/13/transform = Matrix32( 0.241717, 0, 0, 0.642496, -2.32048, -23.7106 )
+shapes/13/trigger = false
+shapes/14/shape = SubResource( 2 )
+shapes/14/transform = Matrix32( 0.270718, 0, 0, 0.631642, -25.1496, -12.2297 )
+shapes/14/trigger = false
+shapes/15/shape = SubResource( 2 )
+shapes/15/transform = Matrix32( 0.232548, 0, 0, 0.619422, 19.9431, 11.279 )
+shapes/15/trigger = false
+shapes/16/shape = SubResource( 2 )
+shapes/16/transform = Matrix32( 0.249702, 0, 0, 0.631642, 30.8693, -0.201984 )
+shapes/16/trigger = false
+shapes/17/shape = SubResource( 2 )
+shapes/17/transform = Matrix32( 0.238266, 0, 0, 0.619421, -13.5786, -0.123878 )
+shapes/17/trigger = false
+shapes/18/shape = SubResource( 2 )
+shapes/18/transform = Matrix32( 0.226831, 0, 0, 0.629886, -1.98349, 11.3571 )
+shapes/18/trigger = false
+shapes/19/shape = SubResource( 2 )
+shapes/19/transform = Matrix32( 0.249701, 0, 0, 0.58276, 8.57102, 23.1893 )
+shapes/19/trigger = false
+shapes/20/shape = SubResource( 2 )
+shapes/20/transform = Matrix32( 0.238266, 0, 0, 0.620689, 19.7201, -12.3172 )
+shapes/20/trigger = false
+shapes/21/shape = SubResource( 2 )
+shapes/21/transform = Matrix32( 0.221113, 0, 0, 0.661767, 9.09131, -23.4019 )
+shapes/21/trigger = false
+shapes/22/shape = SubResource( 2 )
+shapes/22/transform = Matrix32( 0.238265, 0, 0, 0.620788, -13.4299, -11.9954 )
+shapes/22/trigger = false
+shapes/23/shape = SubResource( 2 )
+shapes/23/transform = Matrix32( 0.249701, 0, 0, 0.58276, -2.13215, 35.0607 )
+shapes/23/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HighlightMap/Area2D"]
+
+transform/pos = Vector2( 8.54508, -0.045784 )
+transform/scale = Vector2( 0.236271, 0.566516 )
+shape = SubResource( 2 )
+trigger = false
+_update_shape_index = 0
+
+[node name="CollisionShape2D3 2" type="CollisionShape2D" parent="HighlightMap/Area2D"]
+
+transform/pos = Vector2( -35.6798, -0.280088 )
+transform/scale = Vector2( 0.253423, 0.619422 )
+shape = SubResource( 2 )
+trigger = false
+_update_shape_index = 1
+
+[node name="CollisionShape2D33" type="CollisionShape2D" parent="HighlightMap/Area2D"]
+
+transform/pos = Vector2( -24.6793, 11.4352 )
+transform/scale = Vector2( 0.253423, 0.640351 )
+shape = SubResource( 2 )
+trigger = false
+_update_shape_index = 2
+
+[node name="CollisionShape2D35" type="CollisionShape2D" parent="HighlightMap/Area2D"]
+
+transform/pos = Vector2( -13.3815, 23.3455 )
+transform/scale = Vector2( 0.253423, 0.58276 )
+shape = SubResource( 2 )
+trigger = false
+_update_shape_index = 3
+
+[node name="CollisionShape2D37" type="CollisionShape2D" parent="HighlightMap/Area2D"]
+
+transform/pos = Vector2( -2.4554, -12.3078 )
+transform/scale = Vector2( 0.224835, 0.642496 )
+shape = SubResource( 2 )
+trigger = false
+_update_shape_index = 4
+
+[node name="CollisionShape2D38" type="CollisionShape2D" parent="HighlightMap/Area2D"]
+
+transform/pos = Vector2( -13.4559, -23.7106 )
+transform/scale = Vector2( 0.247706, 0.642497 )
+shape = SubResource( 2 )
+trigger = false
+_update_shape_index = 5
+
+[node name="CollisionShape2D39" type="CollisionShape2D" parent="HighlightMap/Area2D"]
+
+transform/pos = Vector2( -2.38108, -35.2309 )
+transform/scale = Vector2( 0.241988, 0.58276 )
+shape = SubResource( 2 )
+trigger = false
+_update_shape_index = 6
+
+[node name="CollisionShape2D36" type="CollisionShape2D" parent="HighlightMap/Area2D"]
+
+transform/pos = Vector2( 8.69372, 11.5914 )
+transform/scale = Vector2( 0.247705, 0.619421 )
+shape = SubResource( 2 )
+trigger = false
+_update_shape_index = 7
+
+[node name="CollisionShape2D1" type="CollisionShape2D" parent="HighlightMap/Area2D"]
+
+transform/pos = Vector2( 20.0175, -0.201986 )
+transform/scale = Vector2( 0.22683, 0.609934 )
+shape = SubResource( 2 )
+trigger = false
+_update_shape_index = 8
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="HighlightMap/Area2D"]
+
+transform/pos = Vector2( -24.6534, -0.201981 )
+transform/scale = Vector2( 0.243983, 0.608957 )
+shape = SubResource( 2 )
+trigger = false
+_update_shape_index = 9
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="HighlightMap/Area2D"]
+
+transform/pos = Vector2( -13.3556, 11.5133 )
+transform/scale = Vector2( 0.232548, 0.608957 )
+shape = SubResource( 2 )
+trigger = false
+_update_shape_index = 10
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="HighlightMap/Area2D"]
+
+transform/pos = Vector2( -2.28081, 23.1893 )
+transform/scale = Vector2( 0.238265, 0.58276 )
+shape = SubResource( 2 )
+trigger = false
+_update_shape_index = 11
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="HighlightMap/Area2D"]
+
+transform/pos = Vector2( 8.71966, -12.3078 )
+transform/scale = Vector2( 0.22683, 0.642496 )
+shape = SubResource( 2 )
+trigger = false
+_update_shape_index = 12
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="HighlightMap/Area2D"]
+
+transform/pos = Vector2( -2.32048, -23.7106 )
+transform/scale = Vector2( 0.241717, 0.642496 )
+shape = SubResource( 2 )
+trigger = false
+_update_shape_index = 13
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="HighlightMap/Area2D"]
+
+transform/pos = Vector2( -25.1496, -12.2297 )
+transform/scale = Vector2( 0.270718, 0.631642 )
+shape = SubResource( 2 )
+trigger = false
+_update_shape_index = 14
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="HighlightMap/Area2D"]
+
+transform/pos = Vector2( 19.9431, 11.279 )
+transform/scale = Vector2( 0.232548, 0.619422 )
+shape = SubResource( 2 )
+trigger = false
+_update_shape_index = 15
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="HighlightMap/Area2D"]
+
+transform/pos = Vector2( 30.8693, -0.201984 )
+transform/scale = Vector2( 0.249702, 0.631642 )
+shape = SubResource( 2 )
+trigger = false
+_update_shape_index = 16
+
+[node name="CollisionShape2D3 3" type="CollisionShape2D" parent="HighlightMap/Area2D"]
+
+transform/pos = Vector2( -13.5786, -0.123878 )
+transform/scale = Vector2( 0.238266, 0.619421 )
+shape = SubResource( 2 )
+trigger = false
+_update_shape_index = 17
+
+[node name="CollisionShape2D34" type="CollisionShape2D" parent="HighlightMap/Area2D"]
+
+transform/pos = Vector2( -1.98349, 11.3571 )
+transform/scale = Vector2( 0.226831, 0.629886 )
+shape = SubResource( 2 )
+trigger = false
+_update_shape_index = 18
+
+[node name="CollisionShape2D35 2" type="CollisionShape2D" parent="HighlightMap/Area2D"]
+
+transform/pos = Vector2( 8.57102, 23.1893 )
+transform/scale = Vector2( 0.249701, 0.58276 )
+shape = SubResource( 2 )
+trigger = false
+_update_shape_index = 19
+
+[node name="CollisionShape2D354" type="CollisionShape2D" parent="HighlightMap/Area2D"]
+
+transform/pos = Vector2( 19.7201, -12.3172 )
+transform/scale = Vector2( 0.238266, 0.620689 )
+shape = SubResource( 2 )
+trigger = false
+_update_shape_index = 20
+
+[node name="CollisionShape2D355" type="CollisionShape2D" parent="HighlightMap/Area2D"]
+
+transform/pos = Vector2( 9.09131, -23.4019 )
+transform/scale = Vector2( 0.221113, 0.661767 )
+shape = SubResource( 2 )
+trigger = false
+_update_shape_index = 21
+
+[node name="CollisionShape2D356" type="CollisionShape2D" parent="HighlightMap/Area2D"]
+
+transform/pos = Vector2( -13.4299, -11.9954 )
+transform/scale = Vector2( 0.238265, 0.620788 )
+shape = SubResource( 2 )
+trigger = false
+_update_shape_index = 22
+
+[node name="CollisionShape2D353" type="CollisionShape2D" parent="HighlightMap/Area2D"]
+
+transform/pos = Vector2( -2.13215, 35.0607 )
+transform/scale = Vector2( 0.249701, 0.58276 )
+shape = SubResource( 2 )
+trigger = false
+_update_shape_index = 23
+
+[node name="ArrowMap" type="TileMap" parent="."]
+
+visibility/opacity = 0.0
+transform/pos = Vector2( -8, -8 )
+mode = 0
+tile_set = ExtResource( 3 )
+cell/size = Vector2( 16, 16 )
+cell/quadrant_size = 1
+cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+cell/half_offset = 2
+cell/tile_origin = 0
+cell/y_sort = false
+collision/use_kinematic = false
+collision/friction = 1.0
+collision/bounce = 0.0
+collision/layers = 1
+collision/mask = 1
+occluder/light_mask = 1
+tile_data = IntArray( 1, 9, 2, 9, 3, 8 )
+
+[node name="Command List" type="PopupMenu" parent="."]
+
+anchor/left = 1
+anchor/right = 1
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 155.0
+margin/top = -99.0
+margin/right = 50.0
+margin/bottom = -10.0
+popup/exclusive = true
+items = [ "Fire", ExtResource( 5 ), false, false, false, 0, 0, null, "", false, "Capt", ExtResource( 6 ), false, false, false, 1, 0, null, "", false, "Wait", ExtResource( 7 ), false, false, false, 2, 0, null, "", false ]
+
+[connection signal="input_event" from="soldierArea2D" to="." method="_on_Area2D_input_event"]
+
+[connection signal="input_event" from="HighlightMap/Area2D" to="HighlightMap" method="_on_Area2D_input_event"]
+
+
