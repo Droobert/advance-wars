@@ -27,11 +27,9 @@ func capture(var damage, var attacker_color):
 		remove_from_group(my_color)
 		my_color = attacker_color
 		#for HQ in group("HQ"):
-		if(get_tree().call_group(0, "HQ", "all_HQ_controlled", attacker_color)):
-			get_parent().victory(attacker_color)
+		#if(get_tree().call_group(0, "HQ", "all_HQ_controlled", attacker_color)):
+		get_parent().victory(attacker_color)
 
-func all_HQ_controlled(var color):
-	if(color == my_color):
-		return true
-	else:
-		return false
+#func all_HQ_controlled(var color):
+#	if(color != my_color):
+#		return false

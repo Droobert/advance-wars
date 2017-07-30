@@ -1,6 +1,6 @@
 extends AnimatedSprite
 
-var name = "redSoldier"
+#var name = "redSoldier"
 var HP = 10
 var occupied_building = null
 var color = "red"
@@ -15,15 +15,19 @@ func _ready():
 	add_to_group("units")
 	add_to_group("infantry")
 	add_to_group("red")
+	get_parent().unitState[get_name()] = occupied_tile()
 	set_process(true)
 
 #func take_turn():
 #	consider_moving()
 
+func occupied_tile():
+	return((int(get_pos().x/16)*16)%15+(int(get_pos().y/16)*16)/15)
+	
 func consider_moving():
 	#(animate the soldier while he is getting ready to move)
 	#highlight walkable area: call for the consider moving tiles to appear
-	get_node("HighlightMap").set_opacity(0.6)
+	get_node("UnitMaps/HighlightMap").set_opacity(0.6)
 	#higlight attackable enemies
 
 func move():
@@ -32,26 +36,14 @@ func move():
 	mouse.y = int(mouse.y/16)*16+8
 	if(mouse.x < get_viewport_rect().size.x and mouse.y < get_viewport_rect().size.y):
 		set_pos(mouse)
-		get_node("Timer").start()
-		yield(get_node("Timer"), "timeout")
-	#set_opacity(0)
-	#the events fire out of order in the current setup.
-	#the command menu shows up before the soldier knows he is in a building.
-	#we have to update the occupied building here, instead of doing it with the enter or exit event.
-#	if(!occupying_building()):
-#		occupied_building = null
-#	check_for_building()
-	#prepare_command_menu()
-	#occupied_building = "blueHQ"
-#	flush_events()
-#	input
+		get_parent().get_node("Timer").start()
+		yield(get_parent().get_node("Timer"), "timeout")
 	command_menu()
-	#group
 	
 #func check_for_building():
 	#var on_a_building = false
 #	var pos = get_pos()
-#	get_tree().call_group(0, "buildings", "occupies_building", name, pos)
+#	get_tree().call_group(0, "buildings", "occupies_building", get_name(), pos)
 	#for building in get_parent().get_groups("buildings"):
 	#	if(intersects(building)):
 	#		occupied_building = building
@@ -73,7 +65,7 @@ func command_menu():
 
 func fire(var target):
 	# deal the unit's damage to the target
-	target.HP -= int(matchups[target.name]*(float(HP/10)))
+	target.HP -= int(matchups[target.get_name()]*(float(HP/10)))
 	# how are we going to deal damage to the targeted oponent?
 	# (damage is based on terrain, unit type, and current HP)
 	# (counter-attacks deal damage as well!)
