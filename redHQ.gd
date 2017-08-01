@@ -7,8 +7,8 @@ func _ready():
 #	HP = 20
 	add_to_group("buildings")
 	add_to_group("HQ")
-	add_to_group("blue")
-	my_color = "blue"
+	add_to_group("red")
+	my_color = "red"
 	get_parent().buildingLocations[get_location()] = get_name()
 	#get_parent().set_cell((int(get_pos().x/16)*16)%15, (int(get_pos().y/16)*16)/15, 6)
 
@@ -27,11 +27,11 @@ func capture(var damage, var attacker_color):
 		get_node("HP").set_text("")
 		HP = 20
 		# most of this is generalized now, but we still have to set up support for the building changing to the attacker's color building, not just the red one
-		#get_parent().set_cell((int(get_pos().x/16)*16)/16, (int(get_pos().y/16)*16)/16-1, 3)
-		if(attacker_color == "blue"):
-			get_parent().set_cell((int(get_pos().x/16)*16)/16, (int(get_pos().y/16)*16)/16-1, 4)
-		elif(attacker_color == "red"):
+		if(attacker_color == "red"):
 			get_parent().set_cell((int(get_pos().x/16)*16)/16, (int(get_pos().y/16)*16)/16-1, 3)
+		elif(attacker_color == "blue"):
+			get_parent().set_cell((int(get_pos().x/16)*16)/16, (int(get_pos().y/16)*16)/16-1, 4)
+		
 		add_to_group(attacker_color)
 		remove_from_group(my_color)
 		my_color = attacker_color

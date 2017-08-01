@@ -5,9 +5,9 @@ var my_color = null
 
 func _ready():
 	add_to_group("buildings")
-	add_to_group("factories")
+	add_to_group("cities")
 	get_parent().buildingLocations[get_location()] = get_name()
-
+	
 func get_location():
 	return((int(get_pos().x/16)*16)/16+((int(get_pos().y/16)*16)/16)*15)
 

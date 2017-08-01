@@ -1,17 +1,27 @@
-[gd_scene load_steps=13 format=1]
+[gd_scene load_steps=23 format=1]
 
-[ext_resource path="res://mapTiles.tres" type="TileSet" id=1]
+[ext_resource path="res://maptiles.tres" type="TileSet" id=1]
 [ext_resource path="res://FirstMap.gd" type="Script" id=2]
-[ext_resource path="res://maptiles.tres" type="TileSet" id=3]
-[ext_resource path="res://custom cursor.tscn" type="PackedScene" id=4]
-[ext_resource path="res://blue tank.tscn" type="PackedScene" id=5]
-[ext_resource path="res://redSoldier.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Hitbox.tscn" type="PackedScene" id=7]
-[ext_resource path="res://blueHQ.gd" type="Script" id=8]
+[ext_resource path="res://custom cursor.tscn" type="PackedScene" id=3]
+[ext_resource path="res://blue tank.tscn" type="PackedScene" id=4]
+[ext_resource path="res://redSoldier.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Hitbox.tscn" type="PackedScene" id=6]
+[ext_resource path="res://blueHQ.gd" type="Script" id=7]
+[ext_resource path="res://redHQ.gd" type="Script" id=8]
 [ext_resource path="res://neutralFactoryA.gd" type="Script" id=9]
 [ext_resource path="res://neutralFactoryB.gd" type="Script" id=10]
 [ext_resource path="res://neutralFactoryC.gd" type="Script" id=11]
 [ext_resource path="res://neutralFactoryD.gd" type="Script" id=12]
+[ext_resource path="res://neutralCityA.gd" type="Script" id=13]
+[ext_resource path="res://neutralCityB.gd" type="Script" id=14]
+[ext_resource path="res://neutralCityC.gd" type="Script" id=15]
+[ext_resource path="res://neutralCityD.gd" type="Script" id=16]
+[ext_resource path="res://redCityA.gd" type="Script" id=17]
+[ext_resource path="res://redCityB.gd" type="Script" id=18]
+[ext_resource path="res://redCityC.gd" type="Script" id=19]
+[ext_resource path="res://blueCityA.gd" type="Script" id=20]
+[ext_resource path="res://blueCityB.gd" type="Script" id=21]
+[ext_resource path="res://blueCityC.gd" type="Script" id=22]
 
 [node name="TileMap" type="TileMap"]
 
@@ -29,7 +39,7 @@ collision/bounce = 0.0
 collision/layers = 1
 collision/mask = 1
 occluder/light_mask = 1
-tile_data = IntArray( -65536, 1, -65535, 1, -65534, 1, -65533, 1, 0, 1, 1, 1, 2, 1, 4, 5, 5, 5, 6, 5, 7, 5, 8, 5, 9, 5, 10, 0, 11, 5, 12, 5, 13, 5, 14, 4, 65536, 1, 65537, 1, 65539, 5, 65540, 0, 65541, 5, 65542, 5, 65543, 0, 65544, 5, 65545, 0, 65546, 2, 65547, 0, 65548, 5, 65549, 5, 65550, 2, 131072, 1, 131074, 0, 131075, 5, 131076, 0, 131077, 0, 131078, 5, 131080, 5, 131084, 5, 131085, 5, 196609, 5, 196610, 0, 196611, 0, 196612, 0, 196614, 11, 196615, 5, 196616, 11, 196617, 5, 196618, 5, 196619, 5, 196620, 5, 196621, 5, 196622, 5, 262144, 5, 262145, 5, 262147, 0, 262148, 0, 262149, 5, 262150, 5, 262151, 5, 262152, 5, 262153, 5, 262154, 5, 262155, 0, 262156, 0, 262157, 5, 262158, 5, 327680, 5, 327681, 5, 327682, 5, 327684, 0, 327685, 5, 327686, 5, 327687, 5, 327688, 5, 327689, 5, 327690, 0, 327691, 0, 327693, 5, 327694, 2, 393216, 5, 393217, 5, 393218, 5, 393219, 5, 393220, 0, 393221, 0, 393222, 11, 393223, 5, 393224, 11, 393225, 0, 393226, 0, 393228, 5, 393229, 2, 393230, 2, 458752, 5, 458753, 5, 458754, 5, 458755, 5, 458757, 0, 458758, 5, 458759, 0, 458760, 5, 458761, 0, 458763, 5, 458764, 2, 458765, 2, 458766, 2, 524288, 3, 524289, 5, 524290, 5, 524291, 5, 524292, 5, 524294, 5, 524296, 5, 524297, 0, 524298, 5, 524299, 2, 524300, 2, 524301, 2, 524302, 2, 589825, 5, 589826, 5, 589827, 5, 589828, 5, 589829, 5, 589830, 5, 589831, 5, 589832, 5, 589834, 5 )
+tile_data = IntArray( -65536, 1, -65535, 1, -65534, 1, -65533, 1, 0, 1, 1, 1, 2, 1, 4, 28, 5, 5, 6, 5, 7, 5, 8, 5, 9, 5, 10, 0, 11, 5, 12, 27, 13, 5, 14, 4, 65536, 1, 65537, 1, 65539, 28, 65540, 0, 65541, 5, 65542, 5, 65543, 0, 65544, 5, 65545, 0, 65546, 2, 65547, 0, 65548, 27, 65549, 28, 65550, 2, 131072, 1, 131073, 25, 131074, 0, 131075, 5, 131076, 0, 131077, 0, 131078, 5, 131079, 25, 131080, 28, 131085, 28, 131086, 27, 196610, 0, 196611, 0, 196612, 0, 196614, 11, 196616, 11, 196617, 28, 196618, 5, 196619, 5, 196620, 5, 196621, 5, 262144, 5, 262145, 5, 262147, 0, 262148, 0, 262149, 28, 262150, 5, 262151, 5, 262152, 5, 262153, 5, 262154, 5, 262155, 0, 262156, 0, 262157, 5, 262158, 5, 327680, 5, 327681, 5, 327682, 5, 327684, 0, 327685, 28, 327686, 5, 327687, 25, 327688, 5, 327689, 5, 327690, 0, 327691, 0, 327693, 28, 327694, 2, 393216, 26, 393217, 5, 393218, 5, 393219, 5, 393220, 0, 393221, 0, 393222, 11, 393224, 11, 393225, 0, 393226, 0, 393228, 25, 393229, 2, 393230, 2, 458753, 28, 458754, 26, 458755, 5, 458757, 0, 458758, 28, 458759, 0, 458760, 5, 458761, 0, 458763, 28, 458764, 2, 458765, 2, 458766, 2, 524288, 3, 524289, 5, 524290, 26, 524291, 28, 524292, 5, 524294, 28, 524296, 28, 524297, 0, 524298, 28, 524299, 2, 524300, 2, 524301, 2, 524302, 2, 589825, 28, 589827, 28, 589828, 5, 589829, 5, 589830, 5, 589831, 5, 589832, 5, 589834, 28 )
 script/script = ExtResource( 2 )
 __meta__ = {
 "_edit_lock_": true
@@ -39,7 +49,7 @@ __meta__ = {
 
 visibility/behind_parent = true
 mode = 0
-tile_set = ExtResource( 3 )
+tile_set = ExtResource( 1 )
 cell/size = Vector2( 16, 16 )
 cell/quadrant_size = 16
 cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
@@ -52,51 +62,118 @@ collision/bounce = 0.0
 collision/layers = 1
 collision/mask = 1
 occluder/light_mask = 1
-tile_data = IntArray( 10, 5, 14, 5, 65540, 5, 65543, 5, 65545, 5, 65547, 5, 131074, 5, 131077, 5, 196611, 5, 262155, 5, 262156, 5, 327690, 5, 327694, 5, 393221, 5, 393225, 5, 393229, 5, 458759, 5, 458764, 5, 524288, 5, 524299, 5 )
+tile_data = IntArray( 10, 5, 12, 5, 14, 5, 65540, 5, 65543, 5, 65545, 5, 65547, 28, 131074, 28, 131077, 28, 196611, 28, 262155, 5, 262156, 5, 327687, 5, 327690, 5, 327694, 5, 393216, 5, 393221, 28, 393225, 28, 393228, 28, 393229, 5, 458754, 5, 458759, 5, 458764, 5, 524288, 5, 524299, 5 )
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="customCursor" parent="." instance=ExtResource( 4 )]
+[node name="customCursor" parent="." instance=ExtResource( 3 )]
 
-[node name="blueTank" parent="." instance=ExtResource( 5 )]
+[node name="blueTank" parent="." instance=ExtResource( 4 )]
 
 transform/pos = Vector2( 184, 56 )
-
-[node name="redSoldier" parent="." instance=ExtResource( 6 )]
-
-transform/pos = Vector2( 216, 24 )
 frame = 3
 
-[node name="blueHQ" parent="." instance=ExtResource( 7 )]
+[node name="redSoldier" parent="." instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 184, 23 )
+frame = 1
+
+[node name="blueHQ" parent="." instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 232.103, 23.3729 )
 transform/scale = Vector2( 0.253914, 0.248601 )
+script/script = ExtResource( 7 )
+
+[node name="redHQ" parent="." instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 8, 152 )
+transform/scale = Vector2( 0.253914, 0.248601 )
 script/script = ExtResource( 8 )
 
-[node name="nf A" parent="." instance=ExtResource( 7 )]
+[node name="nf A" parent="." instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 104.007, 56.0453 )
 transform/scale = Vector2( 0.251899, 0.251899 )
 script/script = ExtResource( 9 )
 
-[node name="nf B" parent="." instance=ExtResource( 7 )]
+[node name="nf B" parent="." instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 136.103, 56.049 )
 transform/scale = Vector2( 0.251899, 0.251899 )
 script/script = ExtResource( 10 )
 
-[node name="nf C" parent="." instance=ExtResource( 7 )]
+[node name="nf C" parent="." instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 104.112, 104.091 )
 transform/scale = Vector2( 0.251899, 0.251899 )
 script/script = ExtResource( 11 )
 
-[node name="nf D" parent="." instance=ExtResource( 7 )]
+[node name="nf D" parent="." instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 136.142, 103.986 )
 transform/scale = Vector2( 0.251899, 0.251899 )
 script/script = ExtResource( 12 )
+
+[node name="nc A" parent="." instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 24, 56 )
+transform/scale = Vector2( 0.251899, 0.251899 )
+script/script = ExtResource( 13 )
+
+[node name="nc B" parent="." instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 120, 56 )
+transform/scale = Vector2( 0.251899, 0.251899 )
+script/script = ExtResource( 14 )
+
+[node name="nc C" parent="." instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 120, 104 )
+transform/scale = Vector2( 0.251899, 0.251899 )
+script/script = ExtResource( 15 )
+
+[node name="nc D" parent="." instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 200, 120 )
+transform/scale = Vector2( 0.251899, 0.251899 )
+script/script = ExtResource( 16 )
+
+[node name="rc A" parent="." instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 40, 152 )
+transform/scale = Vector2( 0.251899, 0.251899 )
+script/script = ExtResource( 17 )
+
+[node name="rc B" parent="." instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 40, 136 )
+transform/scale = Vector2( 0.251899, 0.251899 )
+script/script = ExtResource( 18 )
+
+[node name="rc C" parent="." instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 8, 120 )
+transform/scale = Vector2( 0.251899, 0.251899 )
+script/script = ExtResource( 19 )
+
+[node name="bc A" parent="." instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 200, 24 )
+transform/scale = Vector2( 0.251899, 0.251899 )
+script/script = ExtResource( 20 )
+
+[node name="bc B" parent="." instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 200, 40 )
+transform/scale = Vector2( 0.251899, 0.251899 )
+script/script = ExtResource( 21 )
+
+[node name="bc C" parent="." instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 232, 56 )
+transform/scale = Vector2( 0.251899, 0.251899 )
+script/script = ExtResource( 22 )
 
 [node name="victoryBanner" type="Label" parent="."]
 
@@ -120,24 +197,36 @@ wait_time = 0.02
 one_shot = false
 autostart = false
 
-[connection signal="area_enter" from="blueHQ" to="." method="_on_blueHQ_area_enter"]
-
 [connection signal="area_exit" from="blueHQ" to="." method="_on_blueHQ_area_exit"]
 
-[connection signal="area_enter" from="nf A" to="." method="_on_nf_A_area_enter"]
+[connection signal="area_exit" from="redHQ" to="." method="_on_redHQ_area_exit"]
 
 [connection signal="area_exit" from="nf A" to="." method="_on_nf_A_area_exit"]
 
-[connection signal="area_enter" from="nf B" to="." method="_on_nf_B_area_enter"]
-
 [connection signal="area_exit" from="nf B" to="." method="_on_nf_B_area_exit"]
-
-[connection signal="area_enter" from="nf C" to="." method="_on_nf_C_area_enter"]
 
 [connection signal="area_exit" from="nf C" to="." method="_on_nf_C_area_exit"]
 
-[connection signal="area_enter" from="nf D" to="." method="_on_nf_D_area_enter"]
-
 [connection signal="area_exit" from="nf D" to="." method="_on_nf_D_area_exit"]
+
+[connection signal="area_exit" from="nc A" to="." method="_on_nc_A_area_exit"]
+
+[connection signal="area_exit" from="nc B" to="." method="_on_nc_B_area_exit"]
+
+[connection signal="area_exit" from="nc C" to="." method="_on_nc_C_area_exit"]
+
+[connection signal="area_exit" from="nc D" to="." method="_on_nc_D_area_exit"]
+
+[connection signal="area_exit" from="rc A" to="." method="_on_rc_A_area_exit"]
+
+[connection signal="area_exit" from="rc B" to="." method="_on_rc_B_area_exit"]
+
+[connection signal="area_exit" from="rc C" to="." method="_on_rc_C_area_exit"]
+
+[connection signal="area_exit" from="bc A" to="." method="_on_bc_A_area_exit"]
+
+[connection signal="area_exit" from="bc B" to="." method="_on_bc_B_area_exit"]
+
+[connection signal="area_exit" from="bc C" to="." method="_on_bc_C_area_exit"]
 
 

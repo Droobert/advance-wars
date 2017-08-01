@@ -7,10 +7,11 @@ func _ready():
 	#get_node("Area2D").connect("pressed", self, "_on_click")
 	add_to_group("units")
 	add_to_group("blue")
-	get_parent().unitState[get_name()] = occupied_tile()
+	get_parent().unitLocations[get_location()] = get_name()
 	set_process(true)
 
 func move():
+	var pre_move_location = get_location()
 	var mouse = get_viewport().get_mouse_pos()
 	mouse.x = int(mouse.x/16)*16+8
 	mouse.y = int(mouse.y/16)*16+8
@@ -20,8 +21,8 @@ func move():
 		yield(get_parent().get_node("Timer"), "timeout")
 	command_menu()
 
-func occupied_tile():
-	return((int(get_pos().x/16)*16)%15+(int(get_pos().y/16)*16)/15)
+func get_location():
+	return((int(get_pos().x/16)*16)/16+((int(get_pos().y/16)*16)/16)*15)
 
 func consider_moving():
 	#(animate the soldier while he is getting ready to move)
