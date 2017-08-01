@@ -1,27 +1,19 @@
-[gd_scene load_steps=23 format=1]
+[gd_scene load_steps=15 format=1]
 
 [ext_resource path="res://maptiles.tres" type="TileSet" id=1]
-[ext_resource path="res://FirstMap.gd" type="Script" id=2]
+[ext_resource path="res://scripts/FirstMap.gd" type="Script" id=2]
 [ext_resource path="res://custom cursor.tscn" type="PackedScene" id=3]
 [ext_resource path="res://blue tank.tscn" type="PackedScene" id=4]
-[ext_resource path="res://redSoldier.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Hitbox.tscn" type="PackedScene" id=6]
-[ext_resource path="res://blueHQ.gd" type="Script" id=7]
-[ext_resource path="res://redHQ.gd" type="Script" id=8]
-[ext_resource path="res://neutralFactoryA.gd" type="Script" id=9]
-[ext_resource path="res://neutralFactoryB.gd" type="Script" id=10]
-[ext_resource path="res://neutralFactoryC.gd" type="Script" id=11]
-[ext_resource path="res://neutralFactoryD.gd" type="Script" id=12]
-[ext_resource path="res://neutralCityA.gd" type="Script" id=13]
-[ext_resource path="res://neutralCityB.gd" type="Script" id=14]
-[ext_resource path="res://neutralCityC.gd" type="Script" id=15]
-[ext_resource path="res://neutralCityD.gd" type="Script" id=16]
-[ext_resource path="res://redCityA.gd" type="Script" id=17]
-[ext_resource path="res://redCityB.gd" type="Script" id=18]
-[ext_resource path="res://redCityC.gd" type="Script" id=19]
-[ext_resource path="res://blueCityA.gd" type="Script" id=20]
-[ext_resource path="res://blueCityB.gd" type="Script" id=21]
-[ext_resource path="res://blueCityC.gd" type="Script" id=22]
+[ext_resource path="res://scripts/blue tank.gd" type="Script" id=5]
+[ext_resource path="res://redSoldier.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scripts/redSoldier.gd" type="Script" id=7]
+[ext_resource path="res://Hitbox.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scripts/blueHQ.gd" type="Script" id=9]
+[ext_resource path="res://scripts/redHQ.gd" type="Script" id=10]
+[ext_resource path="res://scripts/neutralFactory.gd" type="Script" id=11]
+[ext_resource path="res://scripts/neutralCity.gd" type="Script" id=12]
+[ext_resource path="res://scripts/redCity.gd" type="Script" id=13]
+[ext_resource path="res://scripts/blueCity.gd" type="Script" id=14]
 
 [node name="TileMap" type="TileMap"]
 
@@ -72,108 +64,110 @@ __meta__ = {
 [node name="blueTank" parent="." instance=ExtResource( 4 )]
 
 transform/pos = Vector2( 184, 56 )
-frame = 3
+frame = 1
+script/script = ExtResource( 5 )
 
-[node name="redSoldier" parent="." instance=ExtResource( 5 )]
+[node name="redSoldier" parent="." instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 184, 23 )
-frame = 1
+frame = 2
+script/script = ExtResource( 7 )
 
-[node name="blueHQ" parent="." instance=ExtResource( 6 )]
+[node name="blueHQ" parent="." instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 232.103, 23.3729 )
 transform/scale = Vector2( 0.253914, 0.248601 )
-script/script = ExtResource( 7 )
+script/script = ExtResource( 9 )
 
-[node name="redHQ" parent="." instance=ExtResource( 6 )]
+[node name="redHQ" parent="." instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 8, 152 )
 transform/scale = Vector2( 0.253914, 0.248601 )
-script/script = ExtResource( 8 )
+script/script = ExtResource( 10 )
 
-[node name="nf A" parent="." instance=ExtResource( 6 )]
+[node name="nf A" parent="." instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 104.007, 56.0453 )
 transform/scale = Vector2( 0.251899, 0.251899 )
-script/script = ExtResource( 9 )
+script/script = ExtResource( 11 )
 
-[node name="nf B" parent="." instance=ExtResource( 6 )]
+[node name="nf B" parent="." instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 136.103, 56.049 )
 transform/scale = Vector2( 0.251899, 0.251899 )
-script/script = ExtResource( 10 )
+script/script = ExtResource( 11 )
 
-[node name="nf C" parent="." instance=ExtResource( 6 )]
+[node name="nf C" parent="." instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 104.112, 104.091 )
 transform/scale = Vector2( 0.251899, 0.251899 )
 script/script = ExtResource( 11 )
 
-[node name="nf D" parent="." instance=ExtResource( 6 )]
+[node name="nf D" parent="." instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 136.142, 103.986 )
 transform/scale = Vector2( 0.251899, 0.251899 )
-script/script = ExtResource( 12 )
+script/script = ExtResource( 11 )
 
-[node name="nc A" parent="." instance=ExtResource( 6 )]
+[node name="nc A" parent="." instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 24, 56 )
 transform/scale = Vector2( 0.251899, 0.251899 )
-script/script = ExtResource( 13 )
+script/script = ExtResource( 12 )
 
-[node name="nc B" parent="." instance=ExtResource( 6 )]
+[node name="nc B" parent="." instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 120, 56 )
 transform/scale = Vector2( 0.251899, 0.251899 )
-script/script = ExtResource( 14 )
+script/script = ExtResource( 12 )
 
-[node name="nc C" parent="." instance=ExtResource( 6 )]
+[node name="nc C" parent="." instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 120, 104 )
 transform/scale = Vector2( 0.251899, 0.251899 )
-script/script = ExtResource( 15 )
+script/script = ExtResource( 12 )
 
-[node name="nc D" parent="." instance=ExtResource( 6 )]
+[node name="nc D" parent="." instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 200, 120 )
 transform/scale = Vector2( 0.251899, 0.251899 )
-script/script = ExtResource( 16 )
+script/script = ExtResource( 12 )
 
-[node name="rc A" parent="." instance=ExtResource( 6 )]
+[node name="rc A" parent="." instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 40, 152 )
 transform/scale = Vector2( 0.251899, 0.251899 )
-script/script = ExtResource( 17 )
+script/script = ExtResource( 13 )
 
-[node name="rc B" parent="." instance=ExtResource( 6 )]
+[node name="rc B" parent="." instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 40, 136 )
 transform/scale = Vector2( 0.251899, 0.251899 )
-script/script = ExtResource( 18 )
+script/script = ExtResource( 13 )
 
-[node name="rc C" parent="." instance=ExtResource( 6 )]
+[node name="rc C" parent="." instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 8, 120 )
 transform/scale = Vector2( 0.251899, 0.251899 )
-script/script = ExtResource( 19 )
+script/script = ExtResource( 13 )
 
-[node name="bc A" parent="." instance=ExtResource( 6 )]
+[node name="bc A" parent="." instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 200, 24 )
 transform/scale = Vector2( 0.251899, 0.251899 )
-script/script = ExtResource( 20 )
+script/script = ExtResource( 14 )
 
-[node name="bc B" parent="." instance=ExtResource( 6 )]
+[node name="bc B" parent="." instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 200, 40 )
 transform/scale = Vector2( 0.251899, 0.251899 )
-script/script = ExtResource( 21 )
+script/script = ExtResource( 14 )
 
-[node name="bc C" parent="." instance=ExtResource( 6 )]
+[node name="bc C" parent="." instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 232, 56 )
 transform/scale = Vector2( 0.251899, 0.251899 )
-script/script = ExtResource( 22 )
+script/script = ExtResource( 14 )
 
 [node name="victoryBanner" type="Label" parent="."]
 
